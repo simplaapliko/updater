@@ -18,8 +18,6 @@ package com.simplaapliko.updater;
 
 public class Versions {
 
-    // Public API
-
     /**
      * @return 1 if version1 > version2 , -1 if version1 < version2, otherwise returns 0.
      * @throws IllegalArgumentException if version1 or version2 is empty.
@@ -105,5 +103,4 @@ public class Versions {
 
         return version;
     }
-
 }

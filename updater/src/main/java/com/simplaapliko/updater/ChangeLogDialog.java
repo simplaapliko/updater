@@ -55,22 +55,15 @@ public class ChangeLogDialog extends DialogFragment {
         }
     }
 
-
-    // Keys for arguments, saved state variables
     private static final String TITLE_KEY = "TITLE_KEY";
     private static final String CHANGE_LOG_KEY = "CHANGE_LOG_KEY";
     private static final String HAS_POSITIVE_BUTTON_KEY = "HAS_POSITIVE_BUTTON_KEY";
 
-
-    // Class variables
     private DialogInterface.OnDismissListener mOnDismissListener;
 
     private String mTitle;
     private String mChangeLog;
     private boolean mHasPositiveButton;
-
-
-    // Factory
 
     private static ChangeLogDialog newInstance(String title,
                                                String changeLog,
@@ -86,14 +79,8 @@ public class ChangeLogDialog extends DialogFragment {
         return fragment;
     }
 
-
-    // Constructors
-
     public ChangeLogDialog() {
     }
-
-
-    // Android Lifecycle
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -157,9 +144,6 @@ public class ChangeLogDialog extends DialogFragment {
         }
     }
 
-
-    // Public API
-
     public DialogInterface.OnDismissListener getOnDismissListener() {
         return mOnDismissListener;
     }
@@ -167,5 +151,4 @@ public class ChangeLogDialog extends DialogFragment {
     public void setOnDismissListener(final DialogInterface.OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
     }
-
 }

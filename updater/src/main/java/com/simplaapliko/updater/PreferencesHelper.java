@@ -36,15 +36,9 @@ public class PreferencesHelper {
 
     private Context mContext;
 
-
-    // Constructors
-
     PreferencesHelper(Context context) {
         mContext = context;
     }
-
-
-    // Default API
 
     /**
      * @return -1 if version code was not found.
@@ -58,7 +52,7 @@ public class PreferencesHelper {
         mContext.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
                 .edit()
                 .putInt(PREF_VERSION_CODE, code)
-                .commit();
+                .apply();
     }
 
     /**
@@ -73,7 +67,6 @@ public class PreferencesHelper {
         mContext.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
                 .edit()
                 .putString(PREF_VERSION_NAME, name)
-                .commit();
+                .apply();
     }
-
 }

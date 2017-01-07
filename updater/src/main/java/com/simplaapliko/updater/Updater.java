@@ -25,12 +25,9 @@ import java.util.List;
 
 public class Updater {
 
-    // Inner classes
-
     public interface OnVersionChangeListener {
         void onVersionChange();
     }
-
 
     private static final String TAG = "Updater";
 
@@ -39,9 +36,6 @@ public class Updater {
     private int mOldVersionCode;
     private String mNewVersionName;
     private String mOldVersionName;
-
-
-    // Constructors
 
     public Updater(Context context) {
         mContext = context.getApplicationContext();
@@ -63,9 +57,6 @@ public class Updater {
         mOldVersionName = new PreferencesHelper(mContext)
                 .getVersionName();
     }
-
-
-    // Public API
 
     /**
      * @see PreferencesHelper#getVersionCode()
@@ -225,5 +216,4 @@ public class Updater {
         preferencesHelper.setVersionCode(mNewVersionCode);
         preferencesHelper.setVersionName(mNewVersionName);
     }
-
 }

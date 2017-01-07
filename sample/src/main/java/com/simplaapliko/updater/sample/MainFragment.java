@@ -31,12 +31,9 @@ import com.simplaapliko.updater.ChangeLogDialog;
 import com.simplaapliko.updater.Updater;
 import com.simplaapliko.updater.sample.versions.UpdateFactory;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class MainActivityFragment extends Fragment implements DialogInterface.OnDismissListener {
+public class MainFragment extends Fragment implements DialogInterface.OnDismissListener {
 
-    public MainActivityFragment() {
+    public MainFragment() {
     }
 
     @Override
@@ -68,7 +65,7 @@ public class MainActivityFragment extends Fragment implements DialogInterface.On
                 getContext().getSharedPreferences("com.simplaapliko.updater.preferences", Context.MODE_PRIVATE)
                         .edit()
                         .putInt("version_code", 0)
-                        .commit();
+                        .apply();
 
             }
         });
@@ -89,18 +86,14 @@ public class MainActivityFragment extends Fragment implements DialogInterface.On
         Toast.makeText(getContext(), "Dialog dismissed", Toast.LENGTH_SHORT).show();
     }
 
-
-    // Private API
-
     private void showChangeLog() {
         DialogFragment dialog = new ChangeLogDialog.Builder()
                 .setChangeLog(getString(R.string.change_log_description))
                 .setHasPositiveButton(true)
                 .build();
 
-        ((ChangeLogDialog) dialog).setOnDismissListener(MainActivityFragment.this);
+        ((ChangeLogDialog) dialog).setOnDismissListener(MainFragment.this);
 
         dialog.show(getFragmentManager(), ChangeLogDialog.class.getSimpleName());
     }
-
 }

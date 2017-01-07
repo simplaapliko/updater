@@ -15,7 +15,7 @@
   -->
 
 <fragment android:id="@+id/fragment"
-          android:name="com.simplaapliko.updater.sample.MainActivityFragment"
+          android:name="com.simplaapliko.updater.sample.MainFragment"
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:app="http://schemas.android.com/apk/res-auto"
           xmlns:tools="http://schemas.android.com/tools"

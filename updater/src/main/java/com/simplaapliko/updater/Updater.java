@@ -206,14 +206,23 @@ public class Updater {
         return Versions.compareVersion(newVersion, oldVersion) == 1;
     }
 
+    public void setVersionCode(int versionCode) {
+        PreferencesHelper preferencesHelper = new PreferencesHelper(mContext);
+        preferencesHelper.setVersionCode(versionCode);
+    }
+
+    public void setVersionName(String versionName) {
+        PreferencesHelper preferencesHelper = new PreferencesHelper(mContext);
+        preferencesHelper.setVersionName(versionName);
+    }
+
     public void onVersionChanged(List<OnVersionChangeListener> listeners) {
 
         for (OnVersionChangeListener listener : listeners) {
             listener.onVersionChange();
         }
 
-        PreferencesHelper preferencesHelper = new PreferencesHelper(mContext);
-        preferencesHelper.setVersionCode(mNewVersionCode);
-        preferencesHelper.setVersionName(mNewVersionName);
+        setVersionCode(mNewVersionCode);
+        setVersionName(mNewVersionName);
     }
 }

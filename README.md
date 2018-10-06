@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.simplaapliko:updater:0.9.22'
+    compile 'com.simplaapliko:updater:1.1.0'
 }
 ```
 

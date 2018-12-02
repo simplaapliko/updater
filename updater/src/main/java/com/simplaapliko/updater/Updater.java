@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import android.util.Log;
 
 import java.util.List;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Updater {
 
     public interface OnVersionChangeListener {
@@ -52,10 +53,8 @@ public class Updater {
             mNewVersionName = null;
         }
 
-        mOldVersionCode = new PreferencesHelper(mContext)
-                .getVersionCode();
-        mOldVersionName = new PreferencesHelper(mContext)
-                .getVersionName();
+        mOldVersionCode = new PreferencesHelper(mContext).getVersionCode();
+        mOldVersionName = new PreferencesHelper(mContext).getVersionName();
     }
 
     /**
@@ -137,8 +136,7 @@ public class Updater {
      * <p><b><i>Note: Returns false on the first launch</i></b>
      */
     public boolean isVersionCodeChanged() {
-        return mOldVersionCode != -1 &&
-                mNewVersionCode != mOldVersionCode;
+        return mOldVersionCode != -1 && mNewVersionCode != mOldVersionCode;
     }
 
     /**

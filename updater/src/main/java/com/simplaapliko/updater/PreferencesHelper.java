@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.simplaapliko.updater;
 
 import android.content.Context;
 
-public class PreferencesHelper {
+class PreferencesHelper {
 
     private static final String PREFERENCES = "com.simplaapliko.updater.preferences";
 

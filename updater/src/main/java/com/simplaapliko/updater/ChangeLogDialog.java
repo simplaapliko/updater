@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
 import android.view.View;
 import android.webkit.WebView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+
+@SuppressWarnings("unused")
 public class ChangeLogDialog extends DialogFragment {
 
     public static class Builder {
@@ -65,9 +67,8 @@ public class ChangeLogDialog extends DialogFragment {
     private String mChangeLog;
     private boolean mHasPositiveButton;
 
-    private static ChangeLogDialog newInstance(String title,
-                                               String changeLog,
-                                               boolean hasPositiveButton) {
+    private static ChangeLogDialog newInstance(String title, String changeLog,
+            boolean hasPositiveButton) {
 
         ChangeLogDialog fragment = new ChangeLogDialog();
         Bundle args = new Bundle();
@@ -102,37 +103,27 @@ public class ChangeLogDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // get root view
-        View rootView = getActivity().getLayoutInflater().inflate(R.layout.u_dialog_fragment_change_log, null);
+        View view = View.inflate(getContext(), R.layout.u_dialog_fragment_change_log, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(rootView);
+        builder.setView(view);
 
         builder.setTitle(mTitle);
 
-        // set buttons
         if (mHasPositiveButton) {
-            builder.setPositiveButton(
-                    android.R.string.ok,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
+            builder.setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss());
         }
 
-        ((WebView) rootView.findViewById(R.id.description))
-                .loadDataWithBaseURL(null, mChangeLog, "text/html", "utf-8", null);
+        ((WebView) view.findViewById(R.id.description)).loadDataWithBaseURL(null, mChangeLog,
+                "text/html", "utf-8", null);
 
         return builder.create();
     }
 
     @Override
     public void onDetach() {
-        super.onDetach();
-
         mOnDismissListener = null;
+        super.onDetach();
     }
 
     @Override

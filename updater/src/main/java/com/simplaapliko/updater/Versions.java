@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@
 
 package com.simplaapliko.updater;
 
-public class Versions {
+class Versions {
 
     /**
      * @return 1 if version1 > version2 , -1 if version1 < version2, otherwise returns 0.
      * @throws IllegalArgumentException if version1 or version2 is empty.
      */
-    public static int compareVersion(String version1, String version2) {
+    static int compareVersion(String version1, String version2) {
 
         if (version1 == null && version2 == null) {
             return 0;
@@ -59,7 +59,7 @@ public class Versions {
      * @return major version, if not exist returns null.
      * <p>1.3.2, major version = 1
      */
-    public static String getMajorVersion(String version) {
+    static String getMajorVersion(String version) {
         if (version == null || version.isEmpty()) {
             return null;
         }
@@ -72,7 +72,7 @@ public class Versions {
      * @return minor version, if not exist returns null.
      * <p>1.3.2, minor version = 1.3
      */
-    public static String getMinorVersion(String version) {
+    static String getMinorVersion(String version) {
         if (version == null || version.isEmpty()) {
             return null;
         }
@@ -90,7 +90,7 @@ public class Versions {
      * @return patch version, if not exist returns null.
      * <p>1.3.2, patch version = 1.3.2
      */
-    public static String getPatchVersion(String version) {
+    static String getPatchVersion(String version) {
         if (version == null || version.isEmpty()) {
             return null;
         }

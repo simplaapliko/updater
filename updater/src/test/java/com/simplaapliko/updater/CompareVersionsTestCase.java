@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+@SuppressWarnings("ConstantConditions")
 public class CompareVersionsTestCase {
     
     /* larger */
@@ -209,7 +210,7 @@ public class CompareVersionsTestCase {
     /* fail */
     
     @Test
-    public void compareVersionShouldThtowIllegalArgumentException() {
+    public void compareVersionShouldThrowIllegalArgumentException() {
         String version1 = "";
         String version2 = "";
         int expected = 0;
@@ -223,7 +224,7 @@ public class CompareVersionsTestCase {
     }
     
     @Test
-    public void compareVersionShouldThtowIllegalArgumentException2() {
+    public void compareVersionShouldThrowIllegalArgumentException2() {
         String version1 = "";
         String version2 = "1";
         int expected = 0;
@@ -237,7 +238,7 @@ public class CompareVersionsTestCase {
     }
     
     @Test
-    public void compareVersionShouldThtowIllegalArgumentException3() {
+    public void compareVersionShouldThrowIllegalArgumentException3() {
         String version1 = "12.5";
         String version2 = "";
         int expected = 0;
@@ -251,7 +252,7 @@ public class CompareVersionsTestCase {
     }
     
     @Test
-    public void compareVersionShouldNotThtowIllegalArgumentException2() {
+    public void compareVersionShouldNotThrowIllegalArgumentException2() {
         String version1 = null;
         String version2 = null;
         int expected = 0;
@@ -263,5 +264,4 @@ public class CompareVersionsTestCase {
             fail("should not throw IllegalArgumentException");
         }
     }
-    
 }

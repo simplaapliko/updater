@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,12 @@ import java.util.List;
 
 public class UpdateFactory {
 
-    public static List<Updater.OnVersionChangeListener> getUpdateListener(Context context, int version) {
+    public static List<Updater.OnVersionChangeListener> getUpdateListener(Context context,
+            int version) {
 
         List<Updater.OnVersionChangeListener> listeners = new ArrayList<>();
 
-        switch(version) {
+        switch (version) {
             case 2:
                 listeners.add(new UpdateToVersion2(context));
                 break;
@@ -37,5 +38,4 @@ public class UpdateFactory {
 
         return listeners;
     }
-
 }

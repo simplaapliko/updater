@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Oleg Kan, @Simplaapliko
+ * Copyright (C) 2016 Oleg Kan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,14 +26,12 @@ public class UpdateToVersion2 implements Updater.OnVersionChangeListener {
     private Context mContext;
 
 
-    public UpdateToVersion2(Context context) {
+    UpdateToVersion2(Context context) {
         mContext = context;
     }
-
 
     @Override
     public void onVersionChange() {
         Toast.makeText(mContext, "on update to version 2", Toast.LENGTH_SHORT).show();
     }
-
 }
